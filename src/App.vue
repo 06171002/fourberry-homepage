@@ -1,11 +1,21 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { RouterView } from 'vue-router'
+import AppHeader from '@/components/AppHeader.vue'
+import AppFooter from '@/components/AppFooter.vue'
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <AppHeader />
+
+  <main>
+    <RouterView />
+  </main>
+
+  <AppFooter />
 </template>
 
-<style scoped></style>
+<style scoped>
+main {
+  min-height: 80vh; /* 푸터가 항상 아래에 있도록 최소 높이 설정 */
+}
+</style>
