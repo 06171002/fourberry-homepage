@@ -8,7 +8,7 @@
       <a href="/" class="logo">FOURBERRY</a>
       <nav class="navigation">
         <a href="/about">회사소개</a>
-        <a href="/services">SI/SM</a>
+        <a href="/projects">SI/SM</a>
         <a href="/services">솔루션</a>
         <a href="/contact">문의하기</a>
       </nav>
