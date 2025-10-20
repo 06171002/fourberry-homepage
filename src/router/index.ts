@@ -1,16 +1,23 @@
-import { createRouter, createWebHistory } from 'vue-router'
+// src/router/index.ts
+
+// 1. createMemoryHistory를 추가로 import 합니다.
+import { createWebHistory, createMemoryHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import ProjectsView from '../views/ProjectView.vue'
 import ContactView from '../views/ContactView.vue'
 
-const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+export default {
+  // 2. import.meta.env.SSR 값을 확인하여 분기 처리합니다.
+  history: import.meta.env.SSR
+    ? createMemoryHistory(import.meta.env.BASE_URL)
+    : createWebHistory(import.meta.env.BASE_URL),
+
   routes: [
     {
-      path: '/', // 웹사이트의 기본 경로
+      path: '/',
       name: 'home',
-      component: HomeView // 이 경로로 접속하면 HomeView 컴포넌트를 보여줌
+      component: HomeView
     },
     {
       path: '/about',
@@ -20,6 +27,4 @@ const router = createRouter({
     { path: '/projects', name: 'projects', component: ProjectsView },
     { path: '/contact', name: 'contact', component: ContactView },
   ],
-})
-
-export default router
+}

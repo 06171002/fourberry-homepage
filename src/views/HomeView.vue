@@ -18,10 +18,38 @@ import { RouterLink } from 'vue-router'
       </div>
     </section>
 
+    <section class="about-us-section">
+      <div class="content-wrapper">
+        <h2 class="section-title">ABOUT US</h2>
+        <p class="section-description">
+          포베리는 사람 중심의 IT 기술 발전을 위해<br />
+          AICBM(AI, IoT, Cloud, Big Data, Mobile) 중심의 사업에 매진하고 있습니다.
+        </p>
+        <div class="business-areas">
+          <div class="area-card">
+            <h3>시스템 통합 및 유지보수</h3>
+            <p>비즈니스 환경에 최적화된 시스템을 구축하고 안정적으로 운영합니다.</p>
+          </div>
+          <div class="area-card">
+            <h3>자체 솔루션 개발</h3>
+            <p>SSO, 웹 자동화 등 고객의 비즈니스에 새로운 가치를 더하는 기술을 개발합니다.</p>
+          </div>
+          <div class="area-card">
+            <h3>AI/빅데이터 R&D</h3>
+            <p>AI, 빅데이터 기술을 활용한 산학협력을 통해 혁신적인 솔루션을 연구합니다.</p>
+          </div>
+          <div class="area-card">
+            <h3>IT 컨설팅</h3>
+            <p>비즈니스 목표 달성을 위한 최적의 IT 전략과 방향성을 제시합니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="content-section full-screen">
       <div class="content-wrapper">
         <h2>시스템 통합 및 유지보수 (SI/SM)</h2>
-        <p class="section-description">
+        <p class="section-description large">
           다년간 축적된 경험과 기술력을 바탕으로 고객의 비즈니스 환경에 최적화된 시스템을<br />
           설계, 구축하고 안정적으로 운영하여 업무 효율을 극대화합니다.
         </p>
@@ -32,7 +60,7 @@ import { RouterLink } from 'vue-router'
     <section class="content-section solutions-section full-screen">
       <div class="content-wrapper">
         <h2>자체 개발 솔루션</h2>
-        <p class="section-description">
+        <p class="section-description large">
           고객의 비즈니스에 새로운 가치를 더하는 포베리만의 기술력을 만나보세요.
         </p>
         <div class="solution-cards">
@@ -45,7 +73,7 @@ import { RouterLink } from 'vue-router'
             <p>웹 정보 자동 수집 및 상호 작용을 위한 웹 자동화 솔루션</p>
           </div>
         </div>
-        <RouterLink to="/solutions" class="details-button">자세히 보기</RouterLink>
+        <RouterLink to="/services" class="details-button">자세히 보기</RouterLink>
       </div>
     </section>
 
@@ -81,9 +109,7 @@ import { RouterLink } from 'vue-router'
   text-align: center;
   color: white;
   position: relative;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed; /* 배경 이미지 고정 효과 */
+  background-color: #333; /* 배경 이미지가 없을 경우 대비 */
 }
 
 .hero-overlay {
@@ -92,17 +118,12 @@ import { RouterLink } from 'vue-router'
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* 이미지 어둡게 처리 */
+  background-color: #007aff;
 }
 
 .hero-content {
-  position: relative; /* 오버레이 위에 보이도록 */
+  position: relative;
   z-index: 1;
-}
-
-.hero-logo {
-  width: 150px;
-  margin-bottom: 2rem;
 }
 
 .hero-section h1 {
@@ -124,6 +145,52 @@ import { RouterLink } from 'vue-router'
   opacity: 0.7;
 }
 
+/* ============== About Us 섹션 스타일 ============== */
+.about-us-section {
+  padding: 6rem 2rem;
+  background-color: #fff;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.section-description {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 4rem;
+  line-height: 1.7;
+}
+
+.business-areas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.area-card {
+  text-align: center;
+  padding: 2rem;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  background-color: #f8f9fa;
+}
+
+.area-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.area-card p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+}
+
 /* ============== 공통 콘텐츠 섹션 스타일 ============== */
 .content-section {
   padding: 6rem 0;
@@ -134,7 +201,7 @@ import { RouterLink } from 'vue-router'
   margin-bottom: 1rem;
 }
 
-.section-description {
+.section-description.large {
   font-size: 1.1rem;
   color: #555;
   margin-bottom: 2.5rem;
@@ -157,18 +224,16 @@ import { RouterLink } from 'vue-router'
   color: white;
 }
 
-/* ============== [추가] 꽉 찬 화면 섹션 스타일 ============== */
 .full-screen {
-  height: 100vh; /* 화면 높이를 100%로 설정 */
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* 내용을 세로 중앙 정렬 */
-  padding: 0; /* 기존 패딩을 제거하여 꽉 차게 만듦 */
+  justify-content: center;
 }
 
 /* ============== 솔루션 섹션 스타일 ============== */
 .solutions-section {
-  background-color: #f8f9fa; /* 배경색으로 구분 */
+  background-color: #f8f9fa;
 }
 
 .solution-cards {
@@ -228,10 +293,9 @@ import { RouterLink } from 'vue-router'
     flex-direction: column;
     align-items: center;
   }
-  /* [추가] 모바일에서는 꽉 찬 화면 효과 해제 */
   .full-screen {
-    height: auto;
-    padding: 6rem 0;
+    min-height: auto;
+    padding: 6rem 2rem;
   }
 }
 </style>
