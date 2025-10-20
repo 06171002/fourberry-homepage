@@ -1,16 +1,17 @@
 <script setup lang="ts">
-// 스크립트 로직 (아직은 비워둡니다)
+// 1. RouterLink를 import 합니다.
+import { RouterLink } from 'vue-router'
 </script>
 
 <template>
   <header class="header">
     <div class="container">
-      <a href="/" class="logo">FOURBERRY</a>
+      <RouterLink to="/" class="logo">FOURBERRY</RouterLink>
       <nav class="navigation">
-        <a href="/about">회사소개</a>
-        <a href="/projects">SI/SM</a>
-        <a href="/services">솔루션</a>
-        <a href="/contact">문의하기</a>
+        <RouterLink to="/about">회사소개</RouterLink>
+        <RouterLink to="/projects">SI/SM</RouterLink>
+        <RouterLink to="/solutions">솔루션</RouterLink>
+        <RouterLink to="/contact">문의하기</RouterLink>
       </nav>
     </div>
   </header>
